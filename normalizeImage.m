@@ -1,3 +1,6 @@
+% function for processing an image derivative that has negative or >255
+% pixel values, scales according to min and max intensity and outputs a
+% matrix of uint8.
 function outputImage = normalizeImage(image)
     I_max = max(max(image));
     I_min = min(min(image));

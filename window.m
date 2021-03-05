@@ -1,3 +1,7 @@
+%function for creating a nxn window around a pixel, and performs the Harris
+%operator on it.
+%needs to be given the derivative matrices, the pixel this operates about,
+%and the size of the window.
 function H = window(Ix2, Iy2, Ixy, i, j, windowSize)
 
     offset = floor(windowSize/2);
