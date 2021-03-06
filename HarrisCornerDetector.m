@@ -4,7 +4,7 @@ clc
 % size of window for the Lucas Kanade algorithm
 windowSize = 1;
 % threshold for detecting a corner - is ridiculously high atm
-cornerThreshold = -1000000000;
+cornerThreshold = -2e-12;
 
 
 
@@ -52,7 +52,7 @@ Ixy = I_x.*I_y;
 for j=startCounter:ybounds
     for i=startCounter:xbounds
         
-        h = window(Ix2, Iy2, Ixy, i, j, windowSize);
+        h = window(Ix2, Iy2, Ixy, i, j, windowSize, "");
 
         %h = cornerness(i,j);
         cornerness(i,j) = h;

@@ -2,7 +2,7 @@
 %operator on it.
 %needs to be given the derivative matrices, the pixel this operates about,
 %and the size of the window.
-function H = window(Ix2, Iy2, Ixy, i, j, windowSize)
+function H = window(Ix2, Iy2, Ixy, i, j, windowSize, type)
 
     offset = floor(windowSize/2);
     
@@ -15,6 +15,15 @@ function H = window(Ix2, Iy2, Ixy, i, j, windowSize)
         end
     end
     
-    H = det(M) - 0.2*trace(M)^2;
+    if type == "LucasKanade"
+        
+        H = det(M) - 0.2*trace(M)^2;
+        
+    else
+        
+        H = min(eigs(M));
+    end
+
+    
     
 end
